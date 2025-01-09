@@ -1,6 +1,6 @@
 import re
 
-def convert_latex_to_math():
+def latex_a_math():
 
     formuleLatex = input("Entrez votre formule Latex : ")
 
@@ -16,4 +16,4 @@ def convert_latex_to_math():
     
     return formule
 
-print(convert_latex_to_math(input("Entrez votre formule Latex : ")))
+print(latex_a_math(input("Entrez votre formule Latex : ")))
