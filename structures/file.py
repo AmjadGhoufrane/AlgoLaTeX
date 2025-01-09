@@ -1,5 +1,5 @@
-from pile import *
-from timer_deco import *
+from structures.pile import *
+from util.timer_deco import *
 from random import *
 
 class File:

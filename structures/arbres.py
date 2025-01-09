@@ -34,6 +34,9 @@ class noeud:
         return str(self.parcoursLargeur())
 
 
+    def print(self):
+        pass
+
     def parcoursLargeurRec(self):
         if (not self.d) and (not self.g) :
             return [self.val]
