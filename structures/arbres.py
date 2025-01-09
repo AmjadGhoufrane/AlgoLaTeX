@@ -1,4 +1,4 @@
-
+import operation
 class noeud:
 
     def __init__(self,valeur,droite,gauche):
@@ -58,7 +58,7 @@ class noeud:
         if self.g:
             return 1+self.g.taille()
         
-
+    # retourne toutes les feuilles
     def feuilles(self):
         if (not self.d) and (not self.g) :
             return 1
@@ -78,3 +78,27 @@ class noeud:
         if self.getDroite():
             resultat.extend(self.getDroite().parcoursInfixe())
         return resultat
+
+    def profondeur(self):
+        if (not self.d) and (not self.g) :
+            return 1
+        if self.g and self.d :
+            return 1+max(self.d.profondeur(),self.g.profondeur())
+        if self.d:
+            return 1+self.d.profondeur()
+        if self.g:
+            return 1+self.g.profondeur()
+
+    def plusBasParent(self):
+        if(type(self.val) != int | type(self.val) != float):
+            if(self.d.profondeur() > self.g.profondeur()):
+                self.d.plusBasParent()
+            else:
+                self.g.plusBasParent()
+                self.val=operation.operation(self.val,self.g,self.d)
+                self.g=None
+                self.d=None
+                
+
+        else:    
+            return self
