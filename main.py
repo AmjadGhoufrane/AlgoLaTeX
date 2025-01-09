@@ -1,5 +1,5 @@
 from structures.arbres import *
-from parseur import * 
+from util.parseur import * 
 
 def formule_vers_arbre(formule):
     formule = formule.replace(" ", "")
@@ -47,25 +47,6 @@ def formule_vers_arbre(formule):
     
 
     return noeud(operateur,formule_vers_arbre(gauche),formule_vers_arbre(droite))
-
-
-def print_arbre(node, level=0, prefix=""):
-    if node is None:
-        return
-    
-    space = "  "
-    
-    if node.getDroite():
-        print_arbre(node.getDroite(), level + 1, "/")
-    
-    if node.getValeur() == "/":
-        print(space * level + prefix + str(node.getValeur().replace("/","÷")))
-    else :
-        print(space * level + prefix + str(node.getValeur()))
-
-    if node.getGauche():
-        print_arbre(node.getGauche(), level + 1, "\\")
-
 
 # entree = input("Entrez votre calcul : ")
 entree = latex_a_math()
