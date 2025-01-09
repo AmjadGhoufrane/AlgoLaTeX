@@ -91,14 +91,13 @@ class noeud:
 
     def plusBasParent(self):
         if(type(self.val) != int | type(self.val) != float):
-            if(self.d.profondeur() > self.g.profondeur()):
-                self.d.plusBasParent()
-            else:
-                self.g.plusBasParent()
-                self.val=operation.operation(self.val,self.g,self.d)
+            while(self.d.profondeur() != self.g.profondeur()):
+                if(self.d.profondeur() > self.g.profondeur()):
+                    self.d.plusBasParent()
+                if(self.d.profondeur() < self.g.profondeur()):
+                    self.g.plusBasParent()
+            if(self.d.profondeur() == self.g.profondeur()):
+                self.val=operation.operation(self.val,self.d.val,self.g.val)
                 self.g=None
                 self.d=None
-                
-
-        else:    
-            return self
+        return self.val
