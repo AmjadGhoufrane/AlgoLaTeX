@@ -79,6 +79,24 @@ class noeud:
             resultat.extend(self.getDroite().parcoursInfixe())
         return resultat
 
+      
+    def print_arbre(node, level=0, prefix=""):
+        if node is None:
+            return
+
+        space = "  "
+
+        if node.getDroite():
+            print_arbre(node.getDroite(), level + 1, "/")
+
+        if node.getValeur() == "/":
+            print(space * level + prefix + str(node.getValeur().replace("/","÷")))
+        else :
+            print(space * level + prefix + str(node.getValeur()))
+
+        if node.getGauche():
+            print_arbre(node.getGauche(), level + 1, "\\")
+        
     def profondeur(self):
         if (not self.d) and (not self.g) :
             return 1

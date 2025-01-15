@@ -16,4 +16,4 @@ def latex_a_math():
     
     return formule
 
-print(latex_a_math(input("Entrez votre formule Latex : ")))
+# print(latex_a_math(input("Entrez votre formule Latex : ")))
