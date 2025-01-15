@@ -107,15 +107,16 @@ class noeud:
         if self.g:
             return 1+self.g.profondeur()
 
-    def plusBasParent(self):
+    def calculArbre(self,racine):
         if(type(self.val) != int | type(self.val) != float):
             while(self.d.profondeur() != self.g.profondeur()):
                 if(self.d.profondeur() > self.g.profondeur()):
-                    self.d.plusBasParent()
+                    self.d.plusBasParent(racine)
                 if(self.d.profondeur() < self.g.profondeur()):
-                    self.g.plusBasParent()
+                    self.g.plusBasParent(racine)
             if(self.d.profondeur() == self.g.profondeur()):
                 self.val=operation.operation(self.val,self.d.val,self.g.val)
                 self.g=None
                 self.d=None
+                print(racine.print_arbre);
         return self.val
