@@ -1,4 +1,4 @@
-
+import operation
 class noeud:
 
     def __init__(self,valeur,droite,gauche):
@@ -58,7 +58,7 @@ class noeud:
         if self.g:
             return 1+self.g.taille()
         
-
+    # retourne toutes les feuilles
     def feuilles(self):
         if (not self.d) and (not self.g) :
             return 1
@@ -79,22 +79,43 @@ class noeud:
             resultat.extend(self.getDroite().parcoursInfixe())
         return resultat
 
+      
+    def print_arbre(node, level=0, prefix=""):
+        if node is None:
+            return
 
+        space = "  "
 
+        if node.getDroite():
+            print_arbre(node.getDroite(), level + 1, "/")
 
-def print_arbre(node, level=0, prefix=""):
-    if node is None:
-        return
-    
-    space = "  "
-    
-    if node.getDroite():
-        print_arbre(node.getDroite(), level + 1, "/")
-    
-    if node.getValeur() == "/":
-        print(space * level + prefix + str(node.getValeur().replace("/","÷")))
-    else :
-        print(space * level + prefix + str(node.getValeur()))
+        if node.getValeur() == "/":
+            print(space * level + prefix + str(node.getValeur().replace("/","÷")))
+        else :
+            print(space * level + prefix + str(node.getValeur()))
 
-    if node.getGauche():
-        print_arbre(node.getGauche(), level + 1, "\\")
+        if node.getGauche():
+            print_arbre(node.getGauche(), level + 1, "\\")
+        
+    def profondeur(self):
+        if (not self.d) and (not self.g) :
+            return 1
+        if self.g and self.d :
+            return 1+max(self.d.profondeur(),self.g.profondeur())
+        if self.d:
+            return 1+self.d.profondeur()
+        if self.g:
+            return 1+self.g.profondeur()
+
+    def plusBasParent(self):
+        if(type(self.val) != int | type(self.val) != float):
+            while(self.d.profondeur() != self.g.profondeur()):
+                if(self.d.profondeur() > self.g.profondeur()):
+                    self.d.plusBasParent()
+                if(self.d.profondeur() < self.g.profondeur()):
+                    self.g.plusBasParent()
+            if(self.d.profondeur() == self.g.profondeur()):
+                self.val=operation.operation(self.val,self.d.val,self.g.val)
+                self.g=None
+                self.d=None
+        return self.val

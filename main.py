@@ -57,5 +57,10 @@ arbre2 = formule_vers_arbre(entree)
 print_arbre(arbre2)
 print("\n"+str(arbre2.parcoursInfixe()))
 
+def main():
+    entree = input("Entrez votre calcul : ")
+    arbre2 = formule_vers_arbre(entree)
+    print(arbre2.plusBasParent()) 
 
-
+if __name__ == "__main__":
+    main()
