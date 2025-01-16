@@ -1,7 +1,7 @@
 from structures.arbres import *
 from util.parseur import * 
 
-def formule_vers_arbre(formule):
+def formule_vers_arbre(formule): # fait par Amjad Ghoufrane
     formule = formule.replace(" ", "")
 
     if formule.isdigit():
@@ -57,7 +57,7 @@ arbre2 = formule_vers_arbre(entree)
 print_arbre(arbre2)
 print("\n"+str(arbre2.parcoursInfixe()))
 
-def main():
+def main(): # fait par HUGO Dasilva Cardoso
     entree = input("Entrez votre calcul : ")
     arbre2 = formule_vers_arbre(entree)
     print(arbre2.calculArbre(arbre2)) 

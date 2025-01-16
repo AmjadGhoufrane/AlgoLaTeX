@@ -1,4 +1,4 @@
-def operation(signe, val1, val2):
+def operation(signe, val1, val2):# fait par HUGO Dasilva Cardoso
     val1 = float(val1)
     val2 = float(val2)
     

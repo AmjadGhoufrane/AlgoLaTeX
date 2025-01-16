@@ -79,23 +79,6 @@ class noeud:
             resultat.extend(self.getDroite().parcoursInfixe())
         return resultat
 
-      
-    def print_arbre(node, level=0, prefix=""):
-        if node is None:
-            return
-
-        space = "  "
-
-        if node.getDroite():
-            print_arbre(node.getDroite(), level + 1, "/")
-
-        if node.getValeur() == "/":
-            print(space * level + prefix + str(node.getValeur().replace("/","÷")))
-        else :
-            print(space * level + prefix + str(node.getValeur()))
-
-        if node.getGauche():
-            print_arbre(node.getGauche(), level + 1, "\\")
         
     def profondeur(self):
         if (not self.d) and (not self.g) :
@@ -107,7 +90,7 @@ class noeud:
         if self.g:
             return 1+self.g.profondeur()
 
-    def calculArbre(self,racine):
+    def calculArbre(self,racine): # fait par HUGO Dasilva Cardoso
         if(type(self.val) != int | type(self.val) != float):
             while(self.d.profondeur() != self.g.profondeur()):
                 if(self.d.profondeur() > self.g.profondeur()):
@@ -118,5 +101,23 @@ class noeud:
                 self.val=operation.operation(self.val,self.d.val,self.g.val)
                 self.g=None
                 self.d=None
-                print(racine.print_arbre);
+                print(racine.print_arbre)
         return self.val
+
+
+def print_arbre(node, level=0, prefix=""): # fait par Amjad Ghoufrane
+    if node is None:
+        return
+
+    space = "  "
+
+    if node.getDroite():
+        print_arbre(node.getDroite(), level + 1, "/")
+
+    if node.getValeur() == "/":
+        print(space * level + prefix + str(node.getValeur().replace("/","÷")))
+    else :
+        print(space * level + prefix + str(node.getValeur()))
+
+    if node.getGauche():
+        print_arbre(node.getGauche(), level + 1, "\\")

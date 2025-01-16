@@ -1,3 +1,9 @@
 __pycache__/
 *.pyc
 structures/__pycache__/arbres.cpython-313.pyc
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/vcs.xml
+/.idea/AlgoLaTeX.iml
+/.idea/modules.xml
+/.idea/misc.xml
+/.idea/.gitignore

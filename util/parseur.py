@@ -1,6 +1,6 @@
 import re
 
-def latex_a_math():
+def latex_a_math(): # fait par Amjad Ghoufrane
 
     formuleLatex = input("Entrez votre formule Latex : ")
 

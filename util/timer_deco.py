@@ -1,7 +1,7 @@
 import time
 
 
-def Timer(func):
+def Timer(func): # fait par Amjad Ghoufrane
 
     def interne(self):
         start = time.time()
